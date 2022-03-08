@@ -53,7 +53,7 @@ bot.on('messageCreate', async message => {
 
             if(["reboot", "restart"].includes(message.content.toLowerCase())) {
 
-                if(resources.data.attributes.current_state === "stopped") {
+                if(resources.data.attributes.current_state === "offline") {
                     const response = await server.post('/power', {'signal': 'start'})
 
                     if(response.status == "204") {
